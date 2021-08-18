@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>Video Testimonial Bootstrap - Bootsnipp.com</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-family: 'Roboto', sans-serif; letter-spacing: 0px; font-size: 16px; color: #7d7f82; font-weight: 400; line-height: 32px; }
+h1, h2, h3, h4, h5, h6 { color: #26282c; margin: 0px 0px 12px 0px; font-family: 'Glegoo', serif; font-weight: 700; line-height: 1; }
+h1 { font-size: 36px; }
+h2 { font-size: 26px; line-height: 38px; }
+h3 { font-size: 22px; line-height: 32px; }
+h4 { font-size: 20px; }
+h5 { font-size: 16px; line-height: 27px; }
+h6 { font-size: 12px; }
+p { margin: 0 0 20px; line-height: 1.7; }
+p:last-child { margin: 0px; }
+ul, ol { font-family: 'Roboto', sans-serif; }
+a { text-decoration: none; color: #7d7f82; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
+a:focus, a:hover { text-decoration: none; color: #fe5b10; }
+
+
+
+.video-testimonial-block { position: relative; width: auto; height: 206px; overflow: hidden; margin-bottom: 30px; }
+.video-testimonial-block .video-thumbnail { height: 100%; width: 100%; position: absolute; z-index: 1; background-size: cover; top: 0; left: 0; }
+.video-testimonial-block .video { }
+.video-testimonial-block .video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0px; }
+.video-testimonial-block .video-play { position: absolute; z-index: 2; top: 50%; left: 50%; margin-left: -40px; margin-top: -18px; text-decoration: none; }
+.video-testimonial-block .video-play::before { content: "\f144"; font: normal normal normal 14px/1; font-family: 'Font Awesome\ 5 Free'; font-weight: 900; font-size: inherit; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 50px; color: #b3b5bc; }
+.video-testimonial-block .video-play:hover::before { color: #172651; }
+.mb10{margin-bottom:10px;}
+.section-title { margin-bottom: 40px; }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+ <!-- video-testimonial-section -->
+    <div class="space-medium">
+        <div class="container">
+            <div class="row">
+                <div class="offset-xl-2 col-xl-8 offset-lg-2 col-lg-8 col-md-12 col-sm-12 col-12 text-center">
+                    <!-- section-title -->
+                    <div class="section-title">
+                        <h2>The Faces</h2>
+                    </div>
+                </div>
+                <!-- /.section-title -->
+            </div>
+            <div class="row">
+                <!-- video-testimonail -->
+                {% for vid in images %}
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                    <div class="video-testimonial-block">
+                        <div class="video">
+
+                            <img src="http://127.0.0.1:8000/model/video/faces/{{vid}}" width = "100" height="100">
+                        </div>
+                        <a href="/facetrack/{{vid}}">{{vid}}</a>
+                    </div>
+                    
+                </div>
+                {% endfor %}
+                
+                <!-- /.video-testimonail -->
+            </div>
+
+        </div>
+    </div>
+    <!-- /.video-testimonial-section -->
+<script type="text/javascript">
+    $(".video-play").on('click', function(e) {
+        e.preventDefault(); 
+        var vidWrap = $(this).parent(),
+            iframe = vidWrap.find('.video iframe'),
+            iframeSrc = iframe.attr('src'),
+            iframePlay = iframeSrc += "?autoplay=1";
+        vidWrap.children('.video-thumbnail').fadeOut();
+        vidWrap.children('.video-play').fadeOut();
+        vidWrap.find('.video iframe').attr('src', iframePlay);
+
+
+    });
+ 
+</script>
+</body>
+</html>
