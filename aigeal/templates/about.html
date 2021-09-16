@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- page-banner-start -->
+    <div
+      class="page-banner"
+      style="background-image: url({% static 'images/pagebanner.jpg' %})"
+    >
+      <div class="wrapper">
+        <div class="page-title">
+          <h1>About Aigeal</h1>
+        </div>
+      </div>
+    </div>
+    <!-- page-banner-end -->
+
+    <!-- about-start -->
+    <section class="bg">
+      <div class="wrapper">
+        <div class="about">
+          <div
+            class="image"
+            style="background-image: url({% static 'images/about.png' %})"
+          ></div>
+          <div class="details">
+            <h6>Our Mission</h6>
+            <p>
+              We exist to innovate processes, applications, and solutions with AI technology as the primary 
+driver of transformation. As a responsible AI technology enabler, we ensure algorithmic fairness 
+and societal good at large.
+            </p>
+             <h6>What are we doing?</h6>
+             <p>AIGEAL is focused on development of AI centric technologies and platforms.
+              <br>
+There are huge potentials in incorporation of this emerging technology in our life and business. 
+The use of natural resources, green fuels, space exploration and beyond, AI has a unique 
+platform for all. There are numerous areas that can take benefit of this new technology.<br>
+From running a small business to running an efficient government, from running small private 
+practice clinic to running a huge medical facility, from running a small manufacturing business to 
+running a global manufacturing hub, AI can bring a drastic and relevant difference to the 
+optimum level.
+<br>Let AIGEAL help you explore your potential! Together we can achieve new heights!
+
+            </p>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- about-end -->
+
+    <!-- our-teams-start -->
+    <section>
+      <div class="wrapper">
+        <div class="our-teams">
+          <div class="title">
+            <h6>Our Teams</h6>
+          </div>
+
+          <div class="list">
+            {% for team in teams %}
+            <div class="item">
+              <div class="image">
+                <div
+                  class="img"
+                  style="background-image: url({{team.image.url}})"
+                ></div>
+              </div>
+              <div class="details">
+                <h3 class="name">{{team.name}}</h3>
+                <h5>{{team.designation}}</h5>
+
+                <div class="link-icon">
+                  {% if team.facebook_url %}
+                  <a href="{{team.facebook_url}}"><i class="fab fa-facebook"></i></a>
+                  {% endif %}
+                  {% if team.facebook_url %}
+                  <a href="{{team.linkedin_url}}"><i class="fab fa-linkedin"></i></a>
+                  {% endif %}
+                  {% if iteam.twitter_url %}
+                  <a href="{{iteam.twitter_url}}"><i class="fab fa-twitter"></i></a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- our-teams-end -->
+
+    {% endblock %}

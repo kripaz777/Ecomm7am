@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    
+
+    <!-- banner-start -->
+    <div class="banner">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          {% for slider in sliders %}
+          <div class="swiper-slide">
+            <div
+              class="image"
+              style="background-image: url({{slider.image.url}})"
+            >
+              <div class="wrapper">
+                <div class="details">
+                  {{slider.description|safe}}
+                  <p>
+                   {{slider.secondary_description}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <!-- <div class="swiper-slide">
+            <div
+              class="image"
+              style="background-image: url(./images/banner.png)"
+            >
+              <div class="wrapper">
+                <div class="details">
+                  <h1>
+                    <span>
+                      Artificial <br />
+                      Intelligence
+                    </span>
+                  </h1>
+                  <h2>The Digital Transformation</h2>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <!-- banner-end -->
+
+    <!-- about-start -->
+    <section>
+      <div class="wrapper">
+        <div class="about">
+          <div
+            class="image"
+            style="background-image: url({% static 'images/artificially-organi.jpg' %})"
+          ></div>
+          <div class="details">
+            <h6>Mission</h6>
+
+            <p>
+             Technology enthusiasts and professionals working on development of applications, products, 
+solutions and services using Artificial Intelligence (AI) and future technologies. AIGEAL is a noun.
+
+
+            </p>
+
+            <ul>
+              <li>
+                <i class="fas fa-check"></i>Innovation idea latest business
+                tecnology
+              </li>
+              <li>
+                <i class="fas fa-check"></i>Digital content marketing online
+                clients plateform
+              </li>
+              <li>
+                <i class="fas fa-check"></i>Safe secure services for you online
+                email account
+              </li>
+              <li>
+                <i class="fas fa-check"></i>Innovation idea latest business
+                tecnology
+              </li>
+            </ul>
+
+            <a href="/company/about/">
+              <button>Learn More</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- about-end -->
+
+    <!-- services-start -->
+    <section class="bg">
+      <div class="wrapper">
+        <div class="services">
+          <div class="title">
+            <h6>Our Offerings</h6>
+          </div>
+
+          <div class="list">
+            {% for offering in offerings %}
+            <div class="item">
+              <div class="details">
+                <div class="icon">
+                  <img
+                    class="dark-icon"
+                    src="{{offering.image.url}}"
+                    alt=""
+                  />
+                  <img
+                    src="{{offering.image_light.url}}"
+                    class="light-icon"
+                    alt=""
+                  />
+                </div>
+                <h3 class="name">{{offering.title}}</h3>
+                <p>
+                  {{offering.description}}
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- services-end -->
+
+    <!-- work-start -->
+    <section>
+      <div class="wrapper">
+        <div class="work">
+          <div class="details">
+            <h6>How We Work</h6>
+
+            <p>
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. Lorem
+              Ipsum is simply dummy text of the printing and typesetting
+              industry
+            </p>
+
+            <ul>
+              <li>
+                <i class="fas fa-check"></i>Innovation idea latest business
+                tecnology
+              </li>
+              <li>
+                <i class="fas fa-check"></i>Digital content marketing online
+                clients plateform
+              </li>
+              <li>
+                <i class="fas fa-check"></i>Safe secure services for you online
+                email account
+              </li>
+              <li>
+                <i class="fas fa-check"></i>Innovation idea latest business
+                tecnology
+              </li>
+            </ul>
+
+            <a href="/company/about/">
+              <button>Learn More</button>
+            </a>
+          </div>
+          <div
+            class="image"
+            style="background-image: url({% static 'images/work.png' %})"
+          ></div>
+        </div>
+      </div>
+    </section>
+    <!-- work-end -->
+
+    <!-- our-recent-project-start -->
+    <section class="dark-bg no-gap">
+      <div class="wrapper">
+        <div class="our-recent-project">
+          <div class="title light">
+            <h6>PROJECTS</h6>
+          </div>
+          <div class="list">
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+
+                {% for project in projects %}
+                <div class="swiper-slide">
+                  <div class="image">
+                    <div
+                      class="img"
+                      style="
+                        background-image: url({{project.image.url}});
+                      "
+                    ></div>
+                  </div>
+                  <div class="details">
+                    <h3 class="name">{{project.title}}</h3>
+                    <a href="{{project.get_project_url}}">
+                      <button>View</button>
+                    </a>
+                  </div>
+                </div>
+                {% endfor %}
+
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- our-recent-project-end -->
+
+    <!-- Customers-says-start -->
+   <!--  <section class="bg">
+      <div class="wrapper">
+        <div class="customer-says">
+          <div class="title">
+            <h6>TESTIMONIAL</h6>
+          </div>
+
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              {% for testinomial in testinomials %}
+              <div class="swiper-slide">
+                <div class="details">
+
+                  <div class="comment">
+                    <div class="icon">
+                      <img src="{% static 'images/icon/quote.svg' %}" alt="" />
+                    </div>
+                    <p>
+                      {{testinomial.testimonial}}
+                    </p>
+                    <div
+                      class="profile"
+                      style="background-image: url({{testinomial.image.url}})"
+                    ></div>
+                  </div>
+
+                  <div class="name">{{testinomial.name}}</div>
+                  <div class="post">{{testinomial.designation}}</div>
+                </div>
+              </div>
+              {% endfor %}
+              
+
+
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+    <!-- Customers-says-end -->
+
+    <!-- partners-start -->
+    <section>
+      <div class="wrapper">
+        <div class="partners">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              {% for partner in Partners %}
+              <div class="swiper-slide">
+                <div
+                  style="background-image: url({{partner.image.url}})"
+                  class="image"
+                ></div>
+              </div>
+
+              {% endfor %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- partners-end -->
+
+    {% endblock %}

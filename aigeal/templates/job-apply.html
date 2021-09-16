@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- page-banner-start -->
+    <div
+      class="page-banner"
+      style="background-image: url({% static 'images/pagebanner.jpg' %})"
+    >
+      <div class="wrapper">
+        <div class="page-title">
+          <h1>Job Apply</h1>
+          <p>
+            AIGEAL is focused on development of AI centric technologies and platforms.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- page-banner-end -->
+
+    <!-- job-apply-start -->
+    {% for view in view_careeries %}
+    <div class="wrapper">
+      <div class="job-apply">
+        <div class="title-sec">
+          <div class="job-title">{{view.category}} <span>{{view.title}}</span></div>
+          <div class="sup-title"><b>{{view.location}}</b></div>
+          
+          <a href="{{view.url}}">
+            <button class="button">Apply On Linkedin</button>
+          </a>
+          <div class="line"></div>
+        </div>
+
+        <div class="job-details-sec">
+          <h4>Full Job Description</h4>
+
+          {{view.description|safe}}
+          
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <!-- job-apply-end -->
+
+    {% endblock %}

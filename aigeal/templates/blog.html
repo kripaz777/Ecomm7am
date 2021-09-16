@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- page-banner-start -->
+    <div
+      class="page-banner"
+      style="background-image: url({% static 'images/pagebanner.jpg' %})"
+    >
+      <div class="wrapper">
+        <div class="page-title">
+          <h1>
+            Blog at <br />
+            Aigeal
+          </h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
+            laudantium dolorem repudiandae aliquam? Soluta ipsa repellat illum
+            animi. Error at velit veniam voluptatum et eaque molestiae officia,
+            illo vel necessitatibus?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- page-banner-end -->
+
+    <!-- blog-page-start -->
+    <section>
+      <div class="wrapper">
+        <div class="blog-page">
+          <div class="title">
+            <h6>Blog</h6>
+          </div>
+
+          <div class="list">
+            {% for blog in blogs %}
+            <div class="item">
+              <div class="image">
+                <div
+                  class="img"
+                  style="background-image: url({{blog.banner.url}})"
+                ></div>
+              </div>
+              <div class="details">
+                <div class="date">
+                  <i class="far fa-calendar-alt"></i> {{blog.date}}
+                </div>
+                <h3 class="name">
+                  {{blog.title}}
+                </h3>
+                
+                <a href="{{blog.get_subcat_url}}">
+                  <button>Learn More</button>
+                </a>
+              </div>
+            </div>
+            {% endfor%}
+            
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- blog-page-end -->
+
+    {% endblock %}

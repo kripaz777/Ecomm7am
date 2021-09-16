@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- page-banner-start -->
+    <div
+      class="page-banner"
+      style="background-image: url({% static 'images/pagebanner.jpg' %})"
+    >
+      <div class="wrapper">
+        <div class="page-title">
+          <h1>
+            Careers at <br />
+            Aigeal
+          </h1>
+        </div>
+      </div>
+    </div>
+    <!-- page-banner-end -->
+
+    <!-- current-vacancy-start -->
+    <section>
+      <div class="wrapper">
+        <div class="current-vacancy">
+          <div class="title">
+            <h6>Careers</h6>
+          </div>
+
+          <div class="list">
+            {% for carreer in careeries %}
+            <div>
+              <div class="item">
+                <div class="image">
+                  <div
+                    class="img"
+                    style="background-image: url({{carreer.image.url}})"
+                  ></div>
+                </div>
+                <div class="details">
+                  <h3 class="name">{{carreer.title}}</h3>
+                  <h5>{{carreer.category}}</h5>
+                </div>
+                <a href="{{carreer.get_job_url}}">
+                  <button>Apply Now</button>
+                </a>
+              </div>
+            </div>
+            {% endfor %}
+            
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- current-vacancy-end -->
+
+    {% endblock %}

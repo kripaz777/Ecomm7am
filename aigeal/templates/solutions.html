@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- page-banner-start -->
+    <div
+      class="page-banner"
+      style="background-image: url({% static 'images/pagebanner.jpg' %})"
+    >
+      <div class="wrapper">
+        <div class="page-title">
+          <h1>
+            Offerings at <br />
+            Aigeal
+          </h1>
+        </div>
+      </div>
+    </div>
+    <!-- page-banner-end -->
+
+    <div class="background">
+      <img class="cursor-close" src="{% static 'images/icon/shadow-close.svg' %}" alt="" />
+    </div>
+
+    <div class="solutions-popup">
+      <div class="solutions-close">
+        <img src="{% static 'images/icon/close_big.svg' %}" alt="" />
+      </div>
+      <div class="solution-details">
+        <div class="solution-title">Credit Decisioning</div>
+        <p>
+          Reduce credit decision risk for your business while improving access
+          and opportunity for your customers:
+        </p>
+        <ul>
+          <li>
+            <div class="icon"><i class="fas fa-check"></i></div>
+            <span
+              >Understand how your model weighs different features in its
+              decisions with explainability tools</span
+            >
+          </li>
+
+          <li>
+            <div class="icon"><i class="fas fa-check"></i></div>
+            <span
+              >Quickly improve accuracy by exposing specific features or slices
+              of predictions that perform better or worse</span
+            >
+          </li>
+
+          <li>
+            <div class="icon"><i class="fas fa-check"></i></div>
+            <span
+              >Broaden access to credit for your customers by evaluating other
+              features and proxy metrics that have a bigger impact on repayment
+              or default rates than traditional metrics like FICO scores</span
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- solutions-start -->
+    <section>
+      <div class="wrapper">
+        <div class="solutions">
+          <div class="title">
+            <h6>Solutions</h6>
+          </div>
+
+          <div class="list">
+            {% for solution in solutions %}
+            <div class="item">
+              <div
+                class="image"
+                style="background-image: url({{solution.image.url}})"
+              ></div>
+
+              <div class="name solutionBtn">{{solution.title}}</div>
+            </div>
+            
+            {% endfor %}
+            
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- solutions-end -->
+{% endblock %}
+    

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <!-- responsive -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    <!-- swiper -->
+    <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" />
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+
+    <title>Aigel</title>
+  </head>
+  <body>
+    <!-- header-start -->
+    <header>
+      <div class="wrapper">
+        <div class="navbar">
+          <a href="/">
+            {% for logo in logos %}
+            <div class="logo">
+              <img src="{{logo.image.url}}" alt="" />
+            </div>
+            {% endfor %}
+          </a>
+          <div class="nav">
+            <ul class="nav-menu">
+              <a href="/">
+                <li><i class="fas fa-home"></i> Home</li>
+              </a>
+              <li class="drop-down">
+                <div class="icon">
+                  <img src="{% static 'images/icon/menu.svg' %}" alt="" />
+                </div>
+                Company
+                <ul class="drop">
+                  <a href="{% url 'company:about' %}">
+                    <li>About</li>
+                  </a>
+                  <a href="{% url 'company:carrer' %}">
+                    <li>Careers</li>
+                  </a>
+                  <a href="{% url 'company:solutions' %}">
+                    <li>Offerings</li>
+                  </a>
+                  <a href="/blog">
+                    <li>Blog</li>
+                  </a>
+                  <a href="/contact/">
+                    <li>Contact</li>
+                  </a>
+                </ul>
+              </li>
+
+              <li class="drop-down">
+                <div class="icon">
+                  <img src="{% static 'images/icon/menu.svg' %}" alt="" />
+                </div>
+                Product
+
+                <ul class="drop">
+                  {% for product in products %}
+                  <a href="{{product.get_product_url}}">
+                    <li>{{product.title}}</li>
+                  </a>
+                  {% endfor %}
+                </ul>
+              </li>
+
+              <a href="">
+                <li class="login"><i class="fas fa-user"></i> Login</li>
+              </a>
+            </ul>
+          </div>
+          <div class="side-nav-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- header-end -->
+    <div class="background">
+      <img class="cursor-close" src="{% static 'images/icon/shadow-close.svg' %}" alt="" />
+    </div>
+
+    <!-- side-nav-start -->
+    <div class="side-nav">
+      <div class="logo-sec">
+        <div class="logo">
+          <img src="{% static 'images/icon/logo2.png' %}" alt="" />
+        </div>
+        <div class="nav-close">
+          <img src="{% static 'images/icon/close_big.svg' %}" alt="" />
+        </div>
+      </div>
+
+      <ul>
+        <a href="/"><li>Home</li></a>
+        <a href="{% url 'company:about' %}"><li>About</li></a>
+        <a href="{% url 'company:carrer' %}"><li>Careers</li></a>
+        <a href="{% url 'company:solutions' %}"><li>Offerings</li></a>
+        <a href="/blog"><li>Blog</li></a>
+        <a href="/contact/"><li>Contact</li></a>
+        {% for product in products %}
+        <a href="{{product.get_product_url}}"><li>{{product.title}}</li></a>
+        {% endfor %}
+        <a href=""><li>Login</li></a>
+      </ul>
+    </div>
+    <!-- side-nav-end -->
+{% block content %}
+
+
+{% endblock %}
+    <!-- footer-start -->
+    <footer>
+      <div class="wrapper">
+        <div class="logo-sec">
+          <a href="index.html">
+            <div class="logo">
+              <img src="{% static 'images/icon/logo2.png' %}" alt="" />
+            </div>
+          </a>
+
+          <h3>Privacy Policy</h3>
+
+          <p>© Aigeal. All Rights Reserved.</p>
+
+          <p>
+            All product names, logos, and brands are property of their
+            respective owners. All company, product and service names used in
+            this website are for identification purposes only. Use of these
+            names, logos, and brands does not imply endorsement.
+          </p>
+        </div>
+
+        <div class="list">
+          <div class="item">
+            <ul>
+              <li class="heading">Product</li>
+              <a href="{% url 'company:about' %}">
+                <li>About Us</li>
+              </a>
+
+              <a href="contact.html">
+                <li>Support</li>
+              </a>
+
+              <a href="{% url 'company:carrer' %}">
+                <li>Career</li>
+              </a>
+
+              <a href="/blog">
+                <li>Blogs</li>
+              </a>
+
+              <a href="{% url 'company:solutions' %}">
+                <li>Offerings</li>
+              </a>
+
+              
+            </ul>
+          </div>
+
+          <div class="item">
+            <ul>
+              <li class="heading">Resource</li>
+              <a href="#">
+                <li>Privacy Policy</li>
+              </a>
+              <a href="#">
+                <li>FAQ</li>
+              </a>
+              <a href="#">
+                <li>Leadership</li>
+              </a>
+              <a href="#">
+                <li>Terms and Conditions</li>
+              </a>
+
+              <a href="#">
+                <li>Research</li>
+              </a>
+
+              
+            </ul>
+          </div>
+
+          <div class="item">
+            <ul>
+              <li class="heading">SOLUTIONS</li>
+              <a href="#">
+                <li>Aerospace</li>
+              </a>
+              
+              
+              <a href="#">
+                <li>Oil & Gas</li>
+              </a>
+             
+              
+            </ul>
+          </div>
+
+        </div>
+        
+      </div>
+      <br>
+      <center> <font color = "white"> info@aigeal.com</font></center>
+      <center> <font color = "white"> 945 Stockton Drive, Allen, Texas 75013</font></center>
+    </footer>
+    <!-- footer-end -->
+
+    <!-- js -->
+    <script src="{% static 'js/nav.js' %}"></script>
+    <!-- swiper-js -->
+    <script src="{% static 'js/swiper.min.js' %}"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      // banner
+      var swiper = new Swiper('.banner .mySwiper', {
+        slidesPerView: 1,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+
+      // our-recent-project
+      var swiper = new Swiper('.our-recent-project .mySwiper', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        },
+      });
+
+      // customer-says
+      var swiper = new Swiper('.customer-says .mySwiper', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        },
+      });
+
+      // partners
+      var swiper = new Swiper('.partners .mySwiper', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

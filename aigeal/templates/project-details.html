@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- page-banner-start -->
+    <div
+      class="page-banner"
+      style="background-image: url({% static 'images/pagebanner.jpg' %})"
+    >
+      <div class="wrapper">
+        <div class="page-title">
+          <h1>Project Details</h1>
+        </div>
+      </div>
+    </div>
+    <!-- page-banner-end -->
+
+    <!-- blog-page-start -->
+    {% for project in projects %}
+    <section>
+      <div class="blog-details-page">
+        <div class="wrapper">
+          <div class="blog-post">
+            <div class="image">
+              <div
+                class="img"
+                style="background-image: url({{project.image.url}})"
+              ></div>
+            </div>
+            <div class="details">
+              <div class="name">{{project.title}}</div>
+            </div>
+
+            <div class="others-infos">
+              {{project.description|safe}}
+            </div>
+          </div>
+
+          <div class="recent-post">
+            <div class="title-blog">Recent Projects</div>
+            <div class="list">
+              {% for recent_project in projects %}
+              {% if recent_project.id != project.id %}
+              <div class="item">
+                <div class="recent-image">
+                  <div
+                    class="img"
+                    style="background-image: url({{recent_project.image.url}})"
+                  ></div>
+                </div>
+                <div class="name">
+                  <a href="{{recent_project.get_project_url}}"> {{recent_project.title}} </a>
+                </div>
+              </div>
+              {% endif %}
+              {% endfor %}
+              
+
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endfor %}
+    <!-- blog-page-end -->
+
+    {% endblock %}
